@@ -330,56 +330,67 @@
 }
 
 /* ===== Clock ===== */
-.clock-card {
-  text-align: center;
-}
-
 .clock-time {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
   color: var(--accent);
   letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 10px;
 }
 
 .clock-sec {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   opacity: 0.55;
   font-weight: 700;
 }
 
 /* ===== Now Card ===== */
-.now-card .now-current {
-  display: flex;
+.now-badge {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 5px;
+  background: var(--green);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: 999px;
   margin-bottom: 10px;
 }
 
-.now-card .now-icon {
-  font-size: 1.2rem;
-  animation: pulse-dot 2s infinite;
-}
-
-.now-card .now-current strong {
+.now-name {
   display: block;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 6px;
 }
 
-.now-card .now-time {
-  font-size: 0.78rem;
+.now-detail {
+  font-size: 0.85rem;
   color: var(--text2);
+  line-height: 1.5;
+  margin-bottom: 14px;
 }
 
-.now-card .now-next {
+.now-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
   font-size: 0.82rem;
   color: var(--text2);
-  padding-top: 8px;
-  border-top: 1px solid var(--border);
 }
 
-.now-card .now-next-label {
-  font-weight: 600;
+.now-footer strong {
+  color: var(--text);
+}
+
+.now-next-time {
+  font-weight: 700;
   color: var(--accent);
 }
 

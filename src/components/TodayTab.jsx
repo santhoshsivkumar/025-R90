@@ -68,31 +68,23 @@ export default function TodayTab({ state, update, showToast, day, stk, done }) {
         </p>
       </div>
 
-      <div className="card clock-card fade-up" style={{ "--d": "1" }}>
+      <div className="now-card card fade-up" style={{ "--d": "1" }}>
         <div className="clock-time">
           {timeStr.h}:{timeStr.m}
           <span className="clock-sec">:{timeStr.s}</span>
         </div>
-      </div>
-
-      <div className="now-card card fade-up" style={{ "--d": "2" }}>
-        <div className="card-label">Right Now</div>
-        <div className="now-current">
-          <span className="now-icon">🔴</span>
-          <div>
-            <strong>{SCHEDULE[slot.cur].name}</strong>
-            <span className="now-time">
-              {fmt12(SCHEDULE[slot.cur].t)} – {fmt12(SCHEDULE[slot.cur].e)}
-            </span>
-          </div>
-        </div>
-        <div className="now-next">
-          <span className="now-next-label">Next:</span>{" "}
-          {SCHEDULE[slot.nxt].name} at {fmt12(SCHEDULE[slot.nxt].t)}
+        <div className="now-badge">▶ RIGHT NOW</div>
+        <strong className="now-name">{SCHEDULE[slot.cur].name}</strong>
+        <p className="now-detail">{SCHEDULE[slot.cur].detail}</p>
+        <div className="now-footer">
+          <span>
+            Next → <strong>{SCHEDULE[slot.nxt].name}</strong>
+          </span>
+          <span className="now-next-time">{fmt12(SCHEDULE[slot.nxt].t)}</span>
         </div>
       </div>
 
-      <div className="stats-row fade-up" style={{ "--d": "3" }}>
+      <div className="stats-row fade-up" style={{ "--d": "2" }}>
         <div className="stat">
           <span className="stat-val">{stk}</span>
           <span className="stat-label">Streak</span>
@@ -107,7 +99,7 @@ export default function TodayTab({ state, update, showToast, day, stk, done }) {
         </div>
       </div>
 
-      <div className="card fade-up" style={{ "--d": "4" }}>
+      <div className="card fade-up" style={{ "--d": "3" }}>
         <div className="card-label">Daily Habits</div>
         {HABITS.map((h) => (
           <div
@@ -124,7 +116,7 @@ export default function TodayTab({ state, update, showToast, day, stk, done }) {
         ))}
       </div>
 
-      <div className="card fade-up" style={{ "--d": "5" }}>
+      <div className="card fade-up" style={{ "--d": "4" }}>
         <div className="card-label">Water — {waterCount}/8 glasses</div>
         <div className="water-grid">
           {Array.from({ length: 8 }, (_, i) => (
@@ -139,12 +131,12 @@ export default function TodayTab({ state, update, showToast, day, stk, done }) {
         </div>
       </div>
 
-      <div className="card motto fade-up" style={{ "--d": "6" }}>
+      <div className="card motto fade-up" style={{ "--d": "5" }}>
         <div className="card-label">Today's Motto</div>
         <p>{motto}</p>
       </div>
 
-      <div className="fade-up" style={{ "--d": "7" }}>
+      <div className="fade-up" style={{ "--d": "6" }}>
         <button
           className="checkin-btn"
           onClick={handleCheckin}
