@@ -30,7 +30,9 @@ const TABS = [
 
 export default function App() {
   const { state, update, clearAll } = useStore();
-  const [tab, setTab] = useState("today");
+  const [tab, setTab] = useState(
+    () => localStorage.getItem("r90-tab") || "today",
+  );
   const [showSetup, setShowSetup] = useState(!state.startDate);
   const [setupName, setSetupName] = useState("");
   const [toast, setToast] = useState({ message: "", visible: false });
@@ -100,6 +102,7 @@ export default function App() {
   const contentRef = useRef(null);
   useEffect(() => {
     if (contentRef.current) contentRef.current.scrollTop = 0;
+    localStorage.setItem("r90-tab", tab);
   }, [tab]);
 
   const renderTab = useCallback(() => {
