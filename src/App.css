@@ -1008,7 +1008,6 @@
   z-index: 500;
   padding: 20px;
   backdrop-filter: blur(4px);
-  overflow-y: auto;
 }
 
 .dm-modal {
