@@ -1028,6 +1028,43 @@
   flex: 1;
 }
 
+.dm-cols {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dm-col-right {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .dm-modal {
+    max-width: 820px;
+    max-height: fit-content;
+  }
+
+  .dm-body {
+    overflow-y: visible;
+  }
+
+  .dm-cols {
+    flex-direction: row;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .dm-cols > .dm-section {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .dm-col-right {
+    flex: 1;
+  }
+}
+
 .dm-header {
   display: flex;
   justify-content: space-between;

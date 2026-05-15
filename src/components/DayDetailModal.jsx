@@ -42,46 +42,52 @@ export default function DayDetailModal({ dayIdx, startDate, state, onClose }) {
             {checkedIn ? "✅ Checked In" : "❌ Not Checked In"}
           </div>
 
-          <div className="dm-section">
-            <h4>
-              Habits ({habitsCompleted}/{HABITS.length})
-            </h4>
-            {HABITS.map((h) => (
-              <div key={h.id} className="dm-habit">
-                <span className="dm-habit-check">
-                  {dayHabits[h.id] ? "✅" : "⬜"}
-                </span>
-                <span>
-                  {h.icon} {h.label}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <div className="dm-section">
-            <h4>Water ({waterCount}/8 glasses)</h4>
-            <div className="dm-water-bar">
-              <div
-                className="dm-water-fill"
-                style={{ width: `${waterPct}%` }}
-              />
-            </div>
-          </div>
-
-          <div className="dm-section">
-            <h4>
-              {workout.icon} {workout.focus} — {workout.day}
-            </h4>
-            {workout.exs.map((ex, i) => {
-              const wkKey = `${key}-${adjustedDow}-${i}`;
-              const done = !!state.wkChecks[wkKey];
-              return (
-                <div key={i} className="dm-habit">
-                  <span className="dm-habit-check">{done ? "✅" : "⬜"}</span>
-                  <span>{ex}</span>
+          <div className="dm-cols">
+            <div className="dm-section">
+              <h4>
+                Habits ({habitsCompleted}/{HABITS.length})
+              </h4>
+              {HABITS.map((h) => (
+                <div key={h.id} className="dm-habit">
+                  <span className="dm-habit-check">
+                    {dayHabits[h.id] ? "✅" : "⬜"}
+                  </span>
+                  <span>
+                    {h.icon} {h.label}
+                  </span>
                 </div>
-              );
-            })}
+              ))}
+            </div>
+
+            <div className="dm-col-right">
+              <div className="dm-section">
+                <h4>Water ({waterCount}/8 glasses)</h4>
+                <div className="dm-water-bar">
+                  <div
+                    className="dm-water-fill"
+                    style={{ width: `${waterPct}%` }}
+                  />
+                </div>
+              </div>
+
+              <div className="dm-section">
+                <h4>
+                  {workout.icon} {workout.focus} — {workout.day}
+                </h4>
+                {workout.exs.map((ex, i) => {
+                  const wkKey = `${key}-${adjustedDow}-${i}`;
+                  const done = !!state.wkChecks[wkKey];
+                  return (
+                    <div key={i} className="dm-habit">
+                      <span className="dm-habit-check">
+                        {done ? "✅" : "⬜"}
+                      </span>
+                      <span>{ex}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
